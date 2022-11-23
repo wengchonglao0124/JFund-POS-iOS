@@ -41,11 +41,28 @@ struct JacarandaTabView: View {
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
                 
+                // MARK: Promotion View
+                JacarandaPromotionView()
+                    .tabItem({
+                        VStack {
+                            if selectionIndex == 2 {
+                                Image("promotionSelected")
+                            }
+                            else {
+                                Image("promotion")
+                            }
+                            Text("Promotion")
+                        }
+                    })
+                    .tag(2)
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+                
                 // MARK: Activity View
                 JacarandaActivityView(activities: ActivityModel().activies)
                     .tabItem({
                         VStack {
-                            if selectionIndex == 2 {
+                            if selectionIndex == 3 {
                                 Image("activitySelected")
                             }
                             else {
@@ -54,7 +71,7 @@ struct JacarandaTabView: View {
                             Text("Activity")
                         }
                     })
-                    .tag(2)
+                    .tag(3)
                     .navigationBarTitle("")
                     .navigationBarHidden(true)
                 
@@ -62,7 +79,7 @@ struct JacarandaTabView: View {
                 JacarandaProfileView(userName: "UserName", carID: "1234 5678 3657 5623")
                     .tabItem({
                         VStack {
-                            if selectionIndex == 3 {
+                            if selectionIndex == 4 {
                                 Image("profileSelected")
                             }
                             else {
@@ -71,7 +88,7 @@ struct JacarandaTabView: View {
                             Text("Profile")
                         }
                     })
-                    .tag(3)
+                    .tag(4)
                     .navigationBarTitle("")
                     .navigationBarHidden(true)
             }

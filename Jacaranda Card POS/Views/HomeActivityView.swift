@@ -64,7 +64,8 @@ struct HomeActivityView: View {
                             }
                             
                             Button {
-                                tabViewSelectionIndex = 2
+                                // JacarandaActivityView
+                                tabViewSelectionIndex = 3
                             } label: {
                                 Text("Show all")
                                     .font(.system(size: 14))
