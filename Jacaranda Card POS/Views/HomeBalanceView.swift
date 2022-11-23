@@ -18,19 +18,17 @@ struct HomeBalanceView: View {
             VStack(alignment: .leading, spacing: 25) {
                 Text("Balace")
                     .foregroundColor(Color("balanceSectionColor"))
-                    .font(.system(size: 16))
-                    .fontWeight(.bold)
+                    .font(Font.custom("DMSans-Bold", size: 16))
                 
                 Label(balance, image: "balance")
                     .foregroundColor(Color("balanceColor"))
-                    .font(.system(size: 18).bold())
+                    .font(Font.custom("DMSans-Bold", size: 18))
     
             }
             Spacer()
             Text(carID)
                 .foregroundColor(Color("balanceSectionIDColor"))
-                .font(.system(size: 14))
-                .fontWeight(.bold)
+                .font(Font.custom("DMSans-Bold", size: 14))
         }
         .padding(.top, 15)
         .padding(.bottom, 25)

@@ -26,8 +26,7 @@ struct WaitingPaymentView: View {
                         .padding(.bottom, 20)
                         
                         Text("Waiting for customer to confirm")
-                            .font(.system(size: 16))
-                            .fontWeight(.medium)
+                            .font(Font.custom("DMSans-Medium", size: 16))
                             .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
                             .padding(.bottom, 24)
 
@@ -37,8 +36,7 @@ struct WaitingPaymentView: View {
                                 isPresenting = false
                             } label: {
                                 Text("Cancel")
-                                    .font(.system(size: 14))
-                                    .fontWeight(.medium)
+                                    .font(Font.custom("DMSans-Medium", size: 14))
                                     .foregroundColor(Color(red: 122/255, green: 126/255, blue: 128/255))
                                     .padding(.bottom, 45)
                             }

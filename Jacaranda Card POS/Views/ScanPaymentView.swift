@@ -46,24 +46,21 @@ struct ScanPaymentView: View {
                 // MARK: Payment Amount Section
                 VStack(alignment: .leading, spacing: 11) {
                     Text("Enter the amount")
-                        .font(.system(size: 14))
-                        .fontWeight(.medium)
+                        .font(Font.custom("DMSans-Medium", size: 14))
                         .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
                         .padding(.top, 15)
                         .padding(.leading, 30)
           
                     HStack(spacing: 0) {
                         Text("$")
-                            .font(.system(size: 24))
-                            .fontWeight(.medium)
+                            .font(Font.custom("DMSans-Medium", size: 24))
                             .foregroundColor(Color(red: 30/255, green: 30/255, blue: 30/255))
                             .padding(.bottom, 16)
                             .padding(.leading, 30)
                         
                         TextField("0.00", text: $paymentAmount)
                             .modifyInputCurrency(value: $paymentAmount)
-                            .font(.system(size: 24))
-                            .font(.title.weight(.medium))
+                            .font(Font.custom("DMSans-Medium", size: 24))
                             .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
                             .padding(.bottom, 16)
                             .padding(.leading, 12)
@@ -115,8 +112,7 @@ struct ScanPaymentView: View {
             ToolbarItem(placement: .principal) {
                 HStack {
                     Text("Request payment")
-                        .font(.system(size: 16))
-                        .fontWeight(.bold)
+                        .font(Font.custom("DMSans-Bold", size: 16))
                         .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
                     Spacer()
                 }

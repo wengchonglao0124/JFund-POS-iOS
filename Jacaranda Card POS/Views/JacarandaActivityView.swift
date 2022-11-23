@@ -21,8 +21,7 @@ struct JacarandaActivityView: View {
         VStack(alignment: .leading, spacing: 0) {
             // MARK: Title Section
             Text("Activity")
-                .font(.system(size: 18))
-                .fontWeight(.bold)
+                .font(Font.custom("DMSans-Bold", size: 18))
                 .padding(.leading, 22)
                 .padding(.bottom, 15)
             
@@ -35,6 +34,7 @@ struct JacarandaActivityView: View {
                         .background(Color(red: 233/255, green: 233/255, blue: 234/255))
 
                     TextField("Search...", text: $searchQuery)
+                        .font(Font.custom("DMSans-Medium", size: 14))
                         .cornerRadius(8)
                         .padding(.vertical, 7)
                         .frame(height: 34)
@@ -69,8 +69,7 @@ struct JacarandaActivityView: View {
                         ForEach(dateList, id: \.self) { date in
                             Section(header:
                                 Text(date)
-                                .font(.system(size: 12))
-                                .fontWeight(.medium)
+                                .font(Font.custom("DMSans-Medium", size: 12))
                                 .foregroundColor(Color(red: 137/255, green: 138/255, blue: 141/255))
                                 .padding(.vertical, 16)
                             ) {
