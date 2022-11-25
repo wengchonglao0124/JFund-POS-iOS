@@ -1,0 +1,45 @@
+[
+    {
+        "title": "Hawaiian Pizza & Ice cream 10% off in Valenti",
+        "status": "active",
+        "startDateString": "25 Nov 2022",
+        "endDateString": "30 Nov 2022",
+        "description": "Pizza Hut Hawaiian Pizza & Ice cream 10% off in 14/02 Valentines day (not avaliable with any other deals)\n\nOnly in Valentines day!!"
+    },
+    {
+        "title": "Hawaiian Pizza & Ice cream 10% off in Valenti",
+        "status": "pending",
+        "startDateString": "21 Nov 2022",
+        "endDateString": "22 Nov 2022",
+        "description": "Pizza Hut Hawaiian Pizza & Ice cream 10% off in 14/02 Valentines day (not avaliable with any other deals)\n\nOnly in Valentines day!!"
+    },
+    {
+        "title": "Hawaiian Pizza & Ice cream 10% off in Valenti",
+        "status": "expired",
+        "startDateString": "2 Nov 2022",
+        "endDateString": "3 Nov 2022",
+        "description": "Pizza Hut Hawaiian Pizza & Ice cream 10% off in 14/02 Valentines day (not avaliable with any other deals)\n\nOnly in Valentines day!!"
+    },
+    {
+        "title": "New product: Vanilla ice cream",
+        "status": "expired",
+        "startDateString": "11 Nov 2022",
+        "endDateString": "12 Nov 2022",
+        "description": "Pizza Hut Hawaiian Pizza & Ice cream 10% off in 14/02 Valentines day (not avaliable with any other deals)\n\nOnly in Valentines day!!"
+    },
+    {
+        "title": "Christmas event  is coming!!",
+        "status": "expired",
+        "startDateString": "15 Nov 2022",
+        "endDateString": "16 Nov 2022",
+        "description": "Pizza Hut Hawaiian Pizza & Ice cream 10% off in 14/02 Valentines day (not avaliable with any other deals)\n\nOnly in Valentines day!!"
+    },
+    {
+        "title": "Garden Salad 20% off",
+        "status": "pending",
+        "startDateString": "20 Nov 2022",
+        "endDateString": "24 Nov 2022",
+        "description": "Pizza Hut Hawaiian Pizza & Ice cream 10% off in 14/02 Valentines day (not avaliable with any other deals)\n\nOnly in Valentines day!!"
+    }
+]
+

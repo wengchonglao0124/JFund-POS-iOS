@@ -111,6 +111,10 @@ struct JacarandaPromotionView: View {
             }
             .padding(.leading, 33)
             .padding(.vertical, 28)
+            
+            // MARK: Promotion Grid Section
+            let promotionModel = PromotionModel()
+            PromotionGridView(promotions: promotionModel.promotions, filter: selectedTab)
         }
     }
 }

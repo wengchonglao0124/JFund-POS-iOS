@@ -30,13 +30,11 @@ struct HomeActivityView: View {
                         Spacer()
                         VStack(alignment: .center) {
                             Image("noTransactionYet")
+                                .padding(.top, 88)
                                 .padding(.bottom, 16)
                             Text("No Transaction yet")
                                 .font(Font.custom("DMSans-Bold", size: 14))
-                                .padding(.bottom, 7)
-                            Text("Go make your first Payment :)")
-                                .font(Font.custom("DMSans-Medium", size: 12))
-                                .padding(.bottom, 29)
+                                .padding(.bottom, 123)
                         }
                         Spacer()
                     }
