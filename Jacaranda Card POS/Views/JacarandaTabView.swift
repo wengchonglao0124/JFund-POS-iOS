@@ -105,10 +105,8 @@ struct JacarandaTabView_Previews: PreviewProvider {
         Group {
             JacarandaTabView()
             
-            /*
             JacarandaTabView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
-             */
         }
     }
 }

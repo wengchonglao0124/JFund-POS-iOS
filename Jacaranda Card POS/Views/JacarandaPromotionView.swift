@@ -23,9 +23,7 @@ struct JacarandaPromotionView: View {
             }
             
             // MARK: Request Promotion Section
-            Button {
-                print("Request Promotion")
-            } label: {
+            NavigationLink(destination: PromotionDetailedView(title: "", description: "")) {
                 Image("requestPromotionButton")
             }
 
@@ -122,10 +120,14 @@ struct JacarandaPromotionView: View {
 struct JacarandaPromotionView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            JacarandaPromotionView()
+            NavigationView {
+                JacarandaPromotionView()
+            }
             
-            JacarandaPromotionView()
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
+            NavigationView {
+                JacarandaPromotionView()
+            }
+            .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
         }
     }
 }
