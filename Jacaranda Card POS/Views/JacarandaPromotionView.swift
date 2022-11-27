@@ -31,7 +31,7 @@ struct JacarandaPromotionView: View {
             HStack(alignment: .center, spacing: 25) {
                 // MARK: All Tab
                 Text("All")
-                    .font(Font.custom("DMSans-Bold", size: 12))
+                    .font(Font.custom("DMSans-Bold", size: 14))
                     .foregroundColor({
                         if selectedTab == "all" {
                             return Color("promotionPickerSelectedColor")
@@ -50,7 +50,7 @@ struct JacarandaPromotionView: View {
                 
                 // MARK: Active Tab
                 Text("Active")
-                    .font(Font.custom("DMSans-Bold", size: 12))
+                    .font(Font.custom("DMSans-Bold", size: 14))
                     .foregroundColor({
                         if selectedTab == "active" {
                             return Color("promotionPickerSelectedColor")
@@ -69,7 +69,7 @@ struct JacarandaPromotionView: View {
                 
                 // MARK: Pending Tab
                 Text("Pending")
-                    .font(Font.custom("DMSans-Bold", size: 12))
+                    .font(Font.custom("DMSans-Bold", size: 14))
                     .foregroundColor({
                         if selectedTab == "pending" {
                             return Color("promotionPickerSelectedColor")
@@ -88,7 +88,7 @@ struct JacarandaPromotionView: View {
                 
                 // MARK: Expired Tab
                 Text("Expired")
-                    .font(Font.custom("DMSans-Bold", size: 12))
+                    .font(Font.custom("DMSans-Bold", size: 14))
                     .foregroundColor({
                         if selectedTab == "expired" {
                             return Color("promotionPickerSelectedColor")
