@@ -25,12 +25,14 @@ struct SuccessContentView: View {
                 .font(Font.custom("DMSans-Medium", size: 24))
                 .foregroundColor(Color(red: 30/255, green: 30/255, blue: 30/255))
                 .frame(width: 260)
+                .multilineTextAlignment(.center)
             
             if !subtitle.isEmpty {
                 Text(subtitle)
                     .font(Font.custom("DMSans-Medium", size: 16))
                     .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
                     .frame(width: 277)
+                    .multilineTextAlignment(.center)
                     .padding(.top, 29)
                     .padding(.bottom, 75)
             }

@@ -44,3 +44,11 @@ class Promotion: Identifiable, Decodable {
         return Date.now
     }
 }
+
+
+enum PromotionStatus {
+    case request
+    case active
+    case pending
+    case expired
+}

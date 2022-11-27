@@ -9,6 +9,9 @@ import SwiftUI
 
 struct PromotionDetailedView: View {
     
+    // default status
+    var promotionStatus: PromotionStatus = PromotionStatus.request
+    
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @GestureState private var dragOffset = CGSize.zero
     
@@ -20,6 +23,10 @@ struct PromotionDetailedView: View {
     @State var isLoading = false
     @State var isPresentingSuccessContent = false
     @State var finishedAction = false
+    
+    // for pending status only
+    @State var isConfirmingDelete = false
+    @State var confirmedDelete = false
     
     // from tomorrow
     var pickerStartDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
@@ -49,6 +56,7 @@ struct PromotionDetailedView: View {
                             .padding(.trailing, 15)
                             .keyboardType(.default)
                             .focused($titleKeyboardFocused)
+                            .disabled(isLoading)
                     }
                     .background(Color(red: 237/255, green: 238/255, blue: 240/255))
                     .cornerRadius(5)
@@ -65,6 +73,7 @@ struct PromotionDetailedView: View {
                         DatePicker("", selection: $startDate, in: pickerStartDate..., displayedComponents: .date)
                             .labelsHidden()
                             .transformEffect(.init(scaleX: 0.75, y: 0.75))
+                            .disabled(isLoading)
                         
                         Text("to")
                             .font(Font.custom("DMSans-Medium", size: 14))
@@ -75,6 +84,7 @@ struct PromotionDetailedView: View {
                         DatePicker("", selection: $endDate, in: startDate..., displayedComponents: .date)
                             .labelsHidden()
                             .transformEffect(.init(scaleX: 0.75, y: 0.75))
+                            .disabled(isLoading)
                     }
                     .padding(.bottom, 18)
                     
@@ -98,29 +108,61 @@ struct PromotionDetailedView: View {
                             .padding(.trailing, 28)
                             .keyboardType(.default)
                             .focused($descriptionKeyboardFocused)
+                            .disabled(isLoading)
                     }
                     .background(Color(red: 237/255, green: 238/255, blue: 240/255))
                     .cornerRadius(5)
                     .padding(.bottom, 18)
                     
                     // MARK: Confirm Section
-                    Button {
-                        // Submit
-                        isLoading = true
-                    } label: {
-                        if title.isEmpty || description.isEmpty {
-                            Image("promotionConfirmButtonInactive")
+                    switch promotionStatus {
+                    case .pending:
+                        // for pending status
+                        HStack(spacing: 20) {
+                            Button {
+                                print("Promotion Delete")
+                                isConfirmingDelete = true
+                            } label: {
+                                Image("promotionDeleteButton")
+                            }
+                            .disabled(isLoading)
+
+                            Button {
+                                print("Promotion Resubmit")
+                                isLoading = true
+                            } label: {
+                                if title.isEmpty || description.isEmpty {
+                                    Image("promotionResubmitButtonInactive")
+                                }
+                                else {
+                                    Image("promotionResubmitButton")
+                                }
+                            }
+                            .disabled(title.isEmpty || description.isEmpty || isLoading)
                         }
-                        else {
-                            Image("promotionConfirmButtonActive")
+                    default:
+                        // Request promotion
+                        Button {
+                            // Submit
+                            isLoading = true
+                        } label: {
+                            if title.isEmpty || description.isEmpty {
+                                Image("promotionConfirmButtonInactive")
+                            }
+                            else {
+                                Image("promotionConfirmButtonActive")
+                            }
                         }
+                        .disabled(title.isEmpty || description.isEmpty || isLoading)
                     }
-                    .disabled(title.isEmpty || description.isEmpty || isLoading)
                     Spacer()
                 }
                 .padding(.leading, 28)
                 Spacer()
             }
+            // MARK: Confirm Delete Section
+            ConfirmMessageView(message: "Are you sure to delete content ?", isPresenting: $isConfirmingDelete, isAgree: $confirmedDelete)
+            
             // MARK: Loading Section
             LoadingView(message: "Loading", isLoading: $isLoading, isFinished: $isPresentingSuccessContent)
         }
@@ -154,10 +196,24 @@ struct PromotionDetailedView: View {
             }
         }))
         .sheet(isPresented: $isPresentingSuccessContent) {
-            SuccessContentView(message: "Content submitted", subtitle: "Your content will be reviewed by the admin which takes up to 24 hours", isPresenting: $isPresentingSuccessContent, finishedProcess: $finishedAction)
+            switch promotionStatus {
+            case .pending:
+                if !confirmedDelete {
+                    SuccessContentView(message: "Content has been resubmitted", subtitle: "Your content will be reviewed by the admin which takes up to 1-2 business day", isPresenting: $isPresentingSuccessContent, finishedProcess: $finishedAction)
+                }
+                else {
+                    SuccessContentView(message: "Content has been Deleted", subtitle: "", isPresenting: $isPresentingSuccessContent, finishedProcess: $finishedAction)
+                }
+                
+            default:
+                SuccessContentView(message: "Content submitted", subtitle: "Your content will be reviewed by the admin which takes up to 24 hours", isPresenting: $isPresentingSuccessContent, finishedProcess: $finishedAction)
+            }
         }
         .onChange(of: finishedAction) { newValue in
             self.mode.wrappedValue.dismiss()
+        }
+        .onChange(of: confirmedDelete) { newValue in
+            isLoading = true
         }
     }
 }
@@ -171,6 +227,19 @@ struct PromotionDetailedView_Previews: PreviewProvider {
             
             NavigationView {
                 PromotionDetailedView(title: "Hawaiian Pizza & Ice cream 10% off in Valenti", description: "Pizza Hut Hawaiian Pizza & Ice cream 10% off in 14/02 Valentines day (not avaliable with any other deals) \n\nOnly in Valentines day!!")
+            }
+            
+            NavigationView {
+                PromotionDetailedView(promotionStatus: .pending, title: "Hawaiian Pizza & Ice cream 10% off in Valenti", description: "Pizza Hut Hawaiian Pizza & Ice cream 10% off in 14/02 Valentines day (not avaliable with any other deals) \n\nOnly in Valentines day!!")
+            }
+            
+            NavigationView {
+                PromotionDetailedView(promotionStatus: .pending, title: "Hawaiian Pizza & Ice cream 10% off in Valenti", description: "Pizza Hut Hawaiian Pizza & Ice cream 10% off in 14/02 Valentines day (not avaliable with any other deals) \n\nOnly in Valentines day!!")
+            }
+            .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
+            
+            NavigationView {
+                PromotionDetailedView(promotionStatus: .pending, title: "Hawaiian Pizza & Ice cream 10% off in Valenti", description: "")
             }
             
             NavigationView {

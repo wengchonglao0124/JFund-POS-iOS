@@ -3,14 +3,14 @@
         "title": "Hawaiian Pizza & Ice cream 10% off in Valenti",
         "status": "active",
         "startDateString": "25 Nov 2022",
-        "endDateString": "30 Nov 2022",
+        "endDateString": "30 Dec 2022",
         "description": "Pizza Hut Hawaiian Pizza & Ice cream 10% off in 14/02 Valentines day (not avaliable with any other deals)\n\nOnly in Valentines day!!"
     },
     {
         "title": "Hawaiian Pizza & Ice cream 10% off in Valenti",
         "status": "pending",
-        "startDateString": "21 Nov 2022",
-        "endDateString": "22 Nov 2022",
+        "startDateString": "21 Dec 2022",
+        "endDateString": "22 Dec 2022",
         "description": "Pizza Hut Hawaiian Pizza & Ice cream 10% off in 14/02 Valentines day (not avaliable with any other deals)\n\nOnly in Valentines day!!"
     },
     {
@@ -37,8 +37,8 @@
     {
         "title": "Garden Salad 20% off",
         "status": "pending",
-        "startDateString": "20 Nov 2022",
-        "endDateString": "24 Nov 2022",
+        "startDateString": "20 Dec 2022",
+        "endDateString": "24 Dec 2022",
         "description": "Pizza Hut Hawaiian Pizza & Ice cream 10% off in 14/02 Valentines day (not avaliable with any other deals)\n\nOnly in Valentines day!!"
     }
 ]
