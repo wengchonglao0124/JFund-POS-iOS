@@ -36,6 +36,7 @@ struct PromotionDetailedView: View {
     var body: some View {
         ZStack {
             HStack {
+                Spacer()
                 VStack(alignment: .leading, spacing: 0) {
                     // MARK: Title Section
                     Text("Title")
@@ -78,8 +79,7 @@ struct PromotionDetailedView: View {
                         Text("to")
                             .font(Font.custom("DMSans-Medium", size: 14))
                             .foregroundColor(Color(red: 30/255, green: 30/255, blue: 30/255))
-                        
-                        Spacer()
+                            .padding(.trailing, 30)
                         
                         DatePicker("", selection: $endDate, in: startDate..., displayedComponents: .date)
                             .labelsHidden()
@@ -157,7 +157,6 @@ struct PromotionDetailedView: View {
                     }
                     Spacer()
                 }
-                .padding(.leading, 28)
                 Spacer()
             }
             // MARK: Confirm Delete Section

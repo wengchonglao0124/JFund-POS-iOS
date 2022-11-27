@@ -114,6 +114,7 @@ struct JacarandaPromotionView: View {
             let promotionModel = PromotionModel()
             PromotionGridView(promotions: promotionModel.promotions, filter: selectedTab)
         }
+        .padding(.top, 31.5)
     }
 }
 

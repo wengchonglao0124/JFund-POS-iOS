@@ -18,7 +18,7 @@ struct ListPromotionView: View {
             switch promotion.status {
             case "active":
                 // active
-                Text("Active")
+                PromotionCustomerView(companyName: "Pizza Hut", promotionStatus: .active, title: promotion.title, description: promotion.description, endDate: promotion.endDate)
                 
             case "pending":
                 // pending
@@ -26,12 +26,14 @@ struct ListPromotionView: View {
                 
             default:
                 // expired
-                Text("Expired")
+                PromotionCustomerView(companyName: "Pizza Hut", promotionStatus: .expired, title: promotion.title, description: promotion.description, endDate: promotion.endDate)
             }
         }) {
             VStack(alignment: .center, spacing: 0) {
                 // MARK: Company Image Section
                 Image("companyImage")
+                    .resizable()
+                    .scaledToFill()
                     .frame(width: 150, height: 100)
                     .clipped()
                 
@@ -43,6 +45,7 @@ struct ListPromotionView: View {
                         .foregroundColor(.black)
                         .padding(.top, 10)
                         .padding(.bottom, 11)
+                        .multilineTextAlignment(.leading)
                         
                     Spacer()
                 }
