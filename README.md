@@ -48,7 +48,7 @@ JFund: https://github.com/wengchonglao0124/JFund-iOS.git
 https://github.com/wengchonglao0124/JFund-POS-iOS/assets/85862169/bf7caa58-0710-4f85-9d90-092e8575de7d
 
 
-### Screenshot of JFund
+### Screenshot of JFund POS
 
 Home View
 
